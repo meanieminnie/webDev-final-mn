@@ -30,7 +30,7 @@ const yScale = d3.scaleLinear()
 .domain([0, 200000])
 .range([height , 0])
 
-
+var xAxis = d3.axisBottom(xScale)
 
 
 // use d3 to draw axes based on the scales
@@ -38,7 +38,7 @@ svg.append("g").call(d3.axisLeft(yScale))
 
 svg.append("g")
 .attr("transform", `translate(0, ${height})`)
-.call(d3.axisBottom(xScale))
+.call(xAxis.ticks(d3.timeYear))
 
 // svg.append("g").call(d3.axisBottom(xScale))
 
